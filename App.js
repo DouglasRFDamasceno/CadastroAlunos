@@ -1,21 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState, useEffect } from 'react'
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, Button, Alert } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import {Home, Login, Cadastro, Alunos} from './views'
 
 export default function App() {
+  const [nome, setNome] = useState(null);
+  const [endereco, setEndereco] = useState(null);
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+        name="Home" 
+        options={{
+          title:'Bem vindo!',
+          headerTintColor:'#333',
+          headerStyle:{backgroundColor: 'orange'},
+          headerTitleStyle:{fontWeight:'bold', alignSelf:'center'},
+        }}
+        component={Home} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="Alunos" component={Alunos} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
