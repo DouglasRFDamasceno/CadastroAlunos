@@ -1,33 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, FlatList, SafeAreaView } from 'react-native';
+import { Text, View, FlatList, SafeAreaView, Avatar, Alert } from 'react-native';
 import { css } from '../assets/css/Css';
+import * as FileSystem from 'expo-file-system'
+import api from '../services/api'
 
 export default function Alunos() {
     const [alunos, setAlunos] = useState(null);
 
     useEffect(() => {
-        async function getAlunos() {
-            let response = await fetch('http://192.168.0.166:3000/select', {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            })
 
-            let json = await response.json();
-            setAlunos(json);
+        async function getAlunos() {
+            await api.
+                get('select').then(response => {
+                    if (response) {
+                        setAlunos(response.data);
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                });
         }
+
         getAlunos();
     }, []);
 
-    
     return (
 
         <SafeAreaView style={css.list}>
             <FlatList
                 data={alunos}
-                keyExtractor = { (item, index) => index.toString() }
+                keyExtractor={(aluno, index) => index.toString()}
                 renderItem={aluno => {
                     return (
                         <View style={css.border_list}>
@@ -40,6 +41,7 @@ export default function Alunos() {
                                 <Text>
                                     {aluno.item.address}
                                 </Text>
+                                {/* <Avatar source={{ uri: aluno.item.image }}/> */}
                             </View>
                         </View>
                     )

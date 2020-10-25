@@ -35,13 +35,13 @@ export default function Login({ navigation }) {
 
             <View style={css.login_form}>
                 <TextInput
-                    style={css.login_input}
+                    style={css.input}
                     type='text'
                     placeholder='Login'
                     onChangeText={(login) => setLogin(login)}
                 />
                 <TextInput
-                    style={css.login_input}
+                    style={css.input}
                     type='text'
                     placeholder='Senha'
                     onChangeText={(password) => setPassword(password)}

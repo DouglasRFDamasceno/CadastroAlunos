@@ -1,15 +1,19 @@
 {
   "expo": {
-    "name": "Delta",
-    "slug": "Delta",
+    "name": "delta",
+    "slug": "delta",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/react.png",
+      "image": "./assets/img/react.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -17,10 +21,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alpha.delta",
+      "buildNumber": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.alpha.delta",
+      "versionCode": 1
     }
   }
 }

@@ -59,16 +59,6 @@ export default function AreaRestrita({ navigation }) {
                     )
                 }}
             />
-
-            {/* <Tab.Screen
-                name="UploadImg"
-                component={UploadImg}
-                options={{
-                    tabBarIcon: () => (
-                        <Icon name="image" size={20} color="#999" />
-                    )
-                }}
-            /> */}
         </Tab.Navigator>
     );
 }

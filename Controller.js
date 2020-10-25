@@ -2,16 +2,24 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const models = require('./models');
+const path = require("path");
 const app = express();
+const crypto = require("crypto");
 
+const multer = require("multer");
+const multerConfig = require("./config/multer");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(
+    "/files",
+    express.static(path.resolve(__dirname, "tmp", "uploads"))
+);
 
 let alunos = models.Alunos;
 let users = models.Users;
-
+// multer(multerConfig).single("avatar")
 app.post('/add', async (req, res) => {
     let response = await alunos.create({
         name: req.body.name,
@@ -41,7 +49,7 @@ app.post('/authenticate', async (req, res) => {
     let response = await users.findOne({
         where: {
             login: req.body.login,
-            password: req.body.password,
+            password: req.body.password
         }
     })
     if (response == null) {

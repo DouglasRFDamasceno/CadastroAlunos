@@ -19,10 +19,11 @@ const css = StyleSheet.create({
     padding: 10
   },
   button: {
-    marginBottom: 20,
+    marginBottom: 10,
     marginRight: 20,
     padding: 10,
     justifyContent: 'center',
+    borderRadius: 3
 
   },
   photo: {
@@ -36,11 +37,12 @@ const css = StyleSheet.create({
   login_form: {
     width: "80%",
   },
-  login_input: {
+  input: {
     backgroundColor: '#fff',
     fontSize: 20,
     padding: 7,
-    marginBottom: 15
+    marginBottom: 20,
+    marginTop:10
   },
   login_msg: {
     fontWeight: 'bold',
