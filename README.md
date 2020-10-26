@@ -35,7 +35,7 @@ npm install
 
 5. A partir do simulador será possível testar o aplicativo.
 
-6. Faça o backup no banco com o arquivo disponibilizado para teste.
+6. Faça o backup no banco com o arquivo (EEHelza) para teste.
 
 7. A senha padrão:
 
