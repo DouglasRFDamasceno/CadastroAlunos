@@ -14,7 +14,7 @@ routes.post('/add', async (req, res) => {
     return res.json(response);
 })
 
-routes.get('/select', async (req, res) => {
+routes.get('/read', async (req, res) => {
 
     let response = await alunos.findAll({
         raw: true
@@ -37,8 +37,7 @@ routes.post('/authenticate', async (req, res) => {
 routes.post('/remove', async (req, res) => {
     let response = await alunos.destroy({
         where: {
-            name: req.body.name,
-            address: req.body.address
+            id: req.body.id
         }
     })
 
@@ -47,14 +46,11 @@ routes.post('/remove', async (req, res) => {
 
 routes.post('/update', async (req, res) => {
 
-    let aluno = await alunos.findOne({
-        where: {
-            name: req.body.name
-        }
-    })
+    let aluno = await alunos.findByPk(req.body.id);
 
     if (aluno != null) {
         let dados = {
+            id: req.body.id,
             name: req.body.name,
             address: req.body.address != '' ? req.body.address : aluno.address,
             image: req.body.image != '' ? req.body.image : aluno.image

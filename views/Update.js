@@ -9,10 +9,11 @@ import api from "../services/Api"
 
 import { css } from '../assets/css/Css'
 
-export default function Cadastrado() {
+export default function Update() {
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
+    const [id, setId] = useState('')
 
     const [avatar, setAvatar] = useState(null);
 
@@ -44,7 +45,15 @@ export default function Cadastrado() {
     return (
         <KeyboardAvoidingView behaivor={Platform.Os == 'ios' ? 'padding' : 'height'} style={[css.container, css.darkBg]}>
 
+
             <View style={css.login_form}>
+                <TextInput
+                    style={css.input}
+                    type='numeric'
+                    value={id}
+                    placeholder='Identificação'
+                    onChangeText={(id) => setId(id)}
+                />
                 <TextInput
                     style={css.input}
                     type='text'
@@ -79,45 +88,51 @@ export default function Cadastrado() {
                 <View style={css.button}>
                     <Button
                         onPress={() => {
-                            add();
+                            update();
                         }}
-                        title="Adicionar"
-                        color="#228B22"
+                        title="Alterar"
+                        color="#00004d"
                     />
                 </View>
             </TouchableOpacity>
         </KeyboardAvoidingView >
     )
 
-    // Adiciona aluno
-    async function add() {
+    // Alteraração aluno
+    async function update() {
 
         const data = new FormData();
+        let avatarUri = '';
 
-        if (!name || !address || !avatar) {
-            Alert.alert('Por favor, complete todos os campos!');
+        if (!id) {
+            Alert.alert('Por favor, insira a identificação');
             return;
         }
 
-        data.append("avatar", {
-            uri: avatar.uri
-        });
+        if (avatar != null) {
+            data.append("avatar", {
+                uri: avatar.uri
+            });
+            avatarUri = avatar.uri;
+        }
 
         let response = await api.
-            post('add', {
+            post('update', {
+                id: id,
                 name: name,
-                address: address,
-                image: avatar.uri,
+                address: address != '' ? address : '',
+                image: avatarUri
             })
 
-        if (response.data === null) {
-            Alert.alert('Erro ao cadastrar');
+        if (response.data == null) {
+            Alert.alert('Erro ao alterar');
             return;
         }
 
-        Alert.alert(`Cadastrado o aluno ${name} com sucesso!!`);
+        Alert.alert(`Alterado os dados do aluno ${name} com sucesso!!`);
         setName('');
         setAddress('');
         setAvatar(null);
+        setId('');
     }
 }

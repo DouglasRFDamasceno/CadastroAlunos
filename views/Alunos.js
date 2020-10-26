@@ -11,7 +11,7 @@ export default function Alunos() {
 
         async function getAlunos() {
             await api.
-                get('select').then(response => {
+                get('read').then(response => {
                     if (response) {
                         setAlunos(response.data);
                     }
@@ -19,19 +19,26 @@ export default function Alunos() {
                     console.log(error);
                 });
         }
-
         getAlunos();
     }, []);
 
     return (
 
-        <SafeAreaView style={css.list}>
-            <FlatList
-                data={alunos}
-                keyExtractor={(aluno, index) => index.toString()}
-                renderItem={aluno => {
-                    return (
+
+        <FlatList
+            data={alunos}
+            keyExtractor={(aluno, index) => index.toString()}
+            renderItem={aluno => {
+                return (
+                    <SafeAreaView style={css.list}>
                         <View style={css.border_list}>
+                            <View style={css.list}>
+                                <Text style={css.text_list}>Identificação: </Text>
+                                <Text>
+                                    {aluno.item.id}
+                                </Text>
+                            </View>
+
                             <View style={css.list}>
                                 <Text style={css.text_list}>Nome: </Text>
                                 <Text>
@@ -46,9 +53,9 @@ export default function Alunos() {
                                 </Text>
                             </View>
                         </View>
-                    )
-                }}
-            />
-        </SafeAreaView>
+                    </SafeAreaView>
+                )
+            }}
+        />
     );
 }

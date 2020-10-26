@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BackHandler, Alert } from 'react-native';
 import { css } from '../assets/css/Css';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { Cadastro, Home } from './Index';
+import { Cadastro, Remover, Update, Home, } from './Index';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function AreaRestrita({ navigation }) {
@@ -40,13 +40,31 @@ export default function AreaRestrita({ navigation }) {
             activeColor='#999'
             inactiveColor='#fff'
             barStyle={css.area_tab}
-        >
+            >
             <Tab.Screen
-                name="Cadastro"
+                name="Cadastrar"
                 component={Cadastro}
                 options={{
                     tabBarIcon: () => (
-                        <Icon name="archive" size={20} color="#999" />
+                        <Icon name="user-plus" size={20} color="#999" />
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Remover"
+                component={Remover}
+                options={{
+                    tabBarIcon: () => (
+                        <Icon name="user-times" size={20} color="#999" />
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Atualizar"
+                component={Update}
+                options={{
+                    tabBarIcon: () => (
+                        <Icon name="edit" size={20} color="#999" />
                     )
                 }}
             />
