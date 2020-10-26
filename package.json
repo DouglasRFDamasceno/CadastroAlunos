@@ -1,11 +1,13 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start_expo": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "dev": "nodemon Controller.js",
+    "start": "node Controller.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.0",
@@ -17,7 +19,6 @@
     "axios": "^0.21.0",
     "cors": "^2.8.5",
     "expo": "~39.0.2",
-    "expo-image-picker": "^9.1.1",
     "expo-status-bar": "~1.0.2",
     "express": "^4.17.1",
     "pg": "^8.4.1",
