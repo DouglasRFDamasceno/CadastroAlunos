@@ -29,7 +29,7 @@ const css = StyleSheet.create({
   photo: {
     marginBottom: 20,
     marginRight: 20,
-   marginLeft: 15
+    marginLeft: 15
   },
   darkBg: {
     backgroundColor: '#333'
@@ -42,7 +42,7 @@ const css = StyleSheet.create({
     fontSize: 20,
     padding: 7,
     marginBottom: 20,
-    marginTop:10
+    marginTop: 10
   },
   login_msg: {
     fontWeight: 'bold',
@@ -83,6 +83,31 @@ const css = StyleSheet.create({
   border_list: {
     borderBottomWidth: 2,
     borderBottomColor: '#333',
+  },
+  container_image: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  button_image: {
+    marginBottom: 10,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 3,
+    backgroundColor: "#7159c1",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10
+  },
+  buttonText_image: {
+    color: "#fff"
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+    marginRight: 20,
   }
 });
 
