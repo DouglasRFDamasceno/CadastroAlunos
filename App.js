@@ -23,7 +23,7 @@ export default function App() {
         component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Alunos" component={Alunos} />
-        <Stack.Screen name="AreaRestrita" component={AreaRestrita} />
+        <Stack.Screen name="Área Restrita" component={AreaRestrita} />
       </Stack.Navigator>
     </NavigationContainer>
   );
