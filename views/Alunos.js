@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, FlatList, SafeAreaView } from 'react-native';
 
 import { css } from '../assets/css/Css';
-import api from '../services/api'
+import api from '../services/Api'
 
 export default function Alunos() {
     const [alunos, setAlunos] = useState(null);
@@ -37,11 +37,13 @@ export default function Alunos() {
                                 <Text>
                                     {aluno.item.name}
                                 </Text>
+                            </View>
+
+                            <View style={css.list}>
                                 <Text style={css.text_list}> Endereco: </Text>
                                 <Text>
                                     {aluno.item.address}
                                 </Text>
-                                {/* <Avatar source={{ uri: aluno.item.image }}/> */}
                             </View>
                         </View>
                     )

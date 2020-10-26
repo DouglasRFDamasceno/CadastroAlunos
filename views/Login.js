@@ -3,7 +3,7 @@ import { TextInput, View, KeyboardAvoidingView, Button, Platform, Text, Alert, B
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { css } from '../assets/css/Css';
-import api from "../services/api"
+import api from "../services/Api"
 
 export default function Login({ navigation }) {
 

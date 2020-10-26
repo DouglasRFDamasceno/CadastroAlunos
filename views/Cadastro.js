@@ -6,7 +6,7 @@ import * as SQLite from 'expo-sqlite';
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
-import api from "../services/api"
+import api from "../services/Api"
 
 import { css } from '../assets/css/Css'
 

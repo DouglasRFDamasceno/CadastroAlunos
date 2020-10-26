@@ -5,7 +5,7 @@ Aplicação para cadastrar alunos.
 Este aplicativo é capaz de realizar as seguintes operações no cadastro de alunos:
 
 - Inserir
-- Leitura de alunos cadastrados
+- Leitura de cadastrados
 - atualizar
 - Remover
 
@@ -21,23 +21,29 @@ Este aplicativo é capaz de realizar as seguintes operações no cadastro de alu
 1. Instale as dependências do projeto:
 
 ```
-npm install
+yarn install
 ```
 
-3. Configure o banco de dados editando o arquivo `config/config.json`.
+3. Configure o banco de dados (test) editando o arquivo `config/config.json`.
 
-4. Inicie o software. Será necessário dois cmds aberto com o diretório da pasta. Assim digite:
+4. Inicie o software. Será necessário dois cmds aberto com o diretório da pasta. Assim, digite:
 
 ```
-1 - expo start_expo
-2 - npm start
+1 - yarn start_expo
+2 - yarn start
 ```
 
-5. A partir do simulador será possível testar o aplicativo.
+5. A partir do simulador será possível testar o aplicativo. Recomenda-se que rode o aplicativo no simulador (android ou ios) ou no celular com o aplicativo expo, pois este aplicativo não estará disponível para web.
 
-6. Faça o backup no banco com o arquivo (EEHelza) para teste.
+6 - Copie o ip que está acima do QRCode e cole na baseUrl em services/Api. Não é necessário colocar a porta. Exemplo:
 
-7. A senha padrão:
+```
+baseURL: "http://192.168.0.120:3000"
+```
+
+7 - Crie um database no postgres e faça restore com o arquivo (database_test) para teste
+
+8. A senha padrão:
 
 ```
 Login: admin

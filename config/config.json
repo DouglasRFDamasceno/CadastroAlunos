@@ -4,7 +4,7 @@
 		"port": 5432,
 		"username": "postgres",
 		"password": "postgres",
-		"database": "EEHelza",
+		"database": "database_dev",
 		"dialect": "postgres",
 		"logging": false
   },
@@ -13,7 +13,7 @@
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",
