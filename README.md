@@ -14,7 +14,7 @@ Este aplicativo é capaz de realizar as seguintes operações no cadastro de alu
 
 ### Pré-requisitos ###
 - NodeJS
-- Postgres
+- Postgres 4.24
 - Expo
 
 ### Passo a passo ###
