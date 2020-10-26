@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput, View, KeyboardAvoidingView, Button, Platform, TouchableOpacity, Alert } from 'react-native';
-import { Text, Image } from "react-native";
 
-import Constants from "expo-constants";
-import * as Permissions from "expo-permissions";
-import * as ImagePicker from "expo-image-picker";
 import api from "../services/Api"
 
 import { css } from '../assets/css/Css'
