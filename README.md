@@ -1,42 +1,45 @@
 # Cadastro de alunos #
 Aplicação para cadastrar alunos.
 
-
-
-
 ### Início ###
-Este módulo é capaz de monitorar o desempenho e eficiência das máquinas do cliente com base nas informações de produção e eventos de paradas, estados, modos de operação e tempo de ciclo.
+Este aplicativo é capaz de realizar as seguintes operações no cadastro de alunos:
+
+- Inserir
+- Leitura de alunos cadastrados
+- atualizar
+- Remover
 
 ### Add-ons ###
-1. Andon de Produção (link em breve)
-2. Andon de Ciclos (link em breve)
+1. Disponibilidade na Play Store (em breve)
 
 ### Pré-requisitos ###
 - NodeJS
-- MongoDB
-- Módulo comum do MMI
-- Submódulo MMI DB Connector
+- Postgres
+- Expo
 
 ### Passo a passo ###
-1. Execute os seguintes comandos para iniciar o submódulo de conexão com o banco de dados:
-
-```
-git submodule init
-git submodule update
-```
-
-2. Instale as dependências do projeto:
+1. Instale as dependências do projeto:
 
 ```
 npm install
 ```
 
-3. Configure o banco de dados editando o arquivo `mmi_db_connector/models/sqlConfig.json`
+3. Configure o banco de dados editando o arquivo `config/config.json`.
 
-4. Inicie o software:
+4. Inicie o software. Será necessário dois cmds aberto com o diretório da pasta. Assim digite:
 
 ```
-npm start
+1 - expo start_expo
+2 - npm start
 ```
 
-5. Acesse o sistema no link http://localhost:4001
+5. A partir do simulador será possível testar o aplicativo.
+
+6. Faça o backup no banco com o arquivo disponibilizado para teste.
+
+7. A senha padrão:
+
+```
+Login: admin
+Senha: 123
+```
