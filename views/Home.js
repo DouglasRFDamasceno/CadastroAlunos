@@ -1,13 +1,14 @@
-import React from 'react';
-import { View, Button, TouchableOpacity, Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Button, TouchableOpacity, Image, BackHandler, Alert } from 'react-native';
 
 import { css } from '../assets/css/Css'
 
 export default function Home(props) {
+
     return (
         <View style={css.containerRow}>
             <TouchableOpacity>
-                <Image style={css.photo} source={require('../assets/img/logoCadastro.png')}/>
+                <Image style={css.photo} source={require('../assets/img/logoCadastro.png')} />
                 <View style={css.button}>
                     <Button
                         title='Login'

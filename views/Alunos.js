@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, FlatList, SafeAreaView, Avatar, Alert } from 'react-native';
+import { Text, View, FlatList, SafeAreaView } from 'react-native';
+
 import { css } from '../assets/css/Css';
-import * as FileSystem from 'expo-file-system'
 import api from '../services/api'
 
 export default function Alunos() {
@@ -48,6 +48,5 @@ export default function Alunos() {
                 }}
             />
         </SafeAreaView>
-
     );
 }

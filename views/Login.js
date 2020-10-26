@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { TextInput, View, KeyboardAvoidingView, Button, Platform, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { TextInput, View, KeyboardAvoidingView, Button, Platform, Text, Alert, BackHandler } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { css } from '../assets/css/Css';
+import api from "../services/api"
 
 export default function Login({ navigation }) {
 
@@ -17,6 +18,32 @@ export default function Login({ navigation }) {
             return 'none'
         }
     }
+
+    useEffect(() => {
+        const backAction = () => {
+            Alert.alert("Alerta!", "Deseja mesmo sair do app?", [
+                {
+                    text: "Não",
+                    onPress: () => null,
+                    style: "cancel"
+                },
+                {
+                    text: "Sim", onPress: () => {
+                        navigation.navigate('Home');
+                        BackHandler.exitApp();
+                    }
+                }
+            ]);
+            return true;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            backAction
+        );
+
+        return () => backHandler.remove();
+    }, []);
 
     return (
         <KeyboardAvoidingView behaivor={Platform.Os == 'ios' ? 'padding' : 'height'} style={[css.container, css.darkBg]}>
@@ -62,29 +89,21 @@ export default function Login({ navigation }) {
         </KeyboardAvoidingView >
     )
 
+    // Obtém se o usuário é cadastrado
     async function sendForm() {
-        let response = await fetch('http://192.168.0.166:3000/authenticate', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                login: login,
-                password: password
-            })
+        let response = await api.post('/authenticate', {
+            login: login,
+            password: password
         })
 
-        let json = await response.json();
-        
-        if (json === 'error') {
+        if (response.data === null) {
             setDisplay('flex');
             setTimeout(() => {
                 setDisplay('none');
             }, 5000)
             await AsyncStorage.clear();
         } else {
-            await AsyncStorage.setItem('userData', JSON.stringify(json));
+            await AsyncStorage.setItem('userData', JSON.stringify(response));
             navigation.navigate('AreaRestrita');
         }
     }

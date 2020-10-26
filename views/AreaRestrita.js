@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BackHandler, Alert } from 'react-native';
 import { css } from '../assets/css/Css';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
