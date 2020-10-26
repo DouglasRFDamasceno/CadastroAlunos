@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import {Home, Login, Alunos} from './views/Index';
-import AreaRestrita from './views/AreaRestrita';
+import Restrito from './views/AreaRestrita';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -23,7 +23,7 @@ export default function App() {
         component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Alunos" component={Alunos} />
-        <Stack.Screen name="AreaRestrita" component={AreaRestrita} />
+        <Stack.Screen name="Restrito" component={Restrito} />
       </Stack.Navigator>
     </NavigationContainer>
   );

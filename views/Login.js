@@ -104,7 +104,7 @@ export default function Login({ navigation }) {
             await AsyncStorage.clear();
         } else {
             await AsyncStorage.setItem('userData', JSON.stringify(response));
-            navigation.navigate('AreaRestrita');
+            navigation.navigate('Restrito');
         }
     }
 }
